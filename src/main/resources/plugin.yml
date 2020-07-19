@@ -1,0 +1,6 @@
+name: KDBEventsKB
+version: ${project.version}
+main: me.lifelessnerd.kdbeventskb.KDBEventsKB
+api-version: 1.16.1
+authors: [LifelessNerd]
+description: Plugin for the KB event .
