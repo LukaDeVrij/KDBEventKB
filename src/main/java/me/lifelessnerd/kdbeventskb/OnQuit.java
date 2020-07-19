@@ -23,6 +23,7 @@ public class OnQuit implements Listener {
         Score playerScore = objective.getScore(player);
         int playerScoreInt = playerScore.getScore();
         Bukkit.broadcastMessage(String.valueOf(playerScore));
+        //
 
 //        if (player.getWorld().getName().equalsIgnoreCase("kbevent")) {
 //            if (playerScore.equals("1")) {
