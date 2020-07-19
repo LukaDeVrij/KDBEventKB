@@ -16,13 +16,12 @@ public class OnQuit implements Listener {
     public void onPlayerQuit(final PlayerQuitEvent event) {
         Player player = event.getPlayer();
         Scoreboard scoreboard = player.getScoreboard();
-        Bukkit.broadcastMessage(String.valueOf(scoreboard));
         Objective objective = scoreboard.getObjective("KBteam");
-        Bukkit.broadcastMessage(String.valueOf(objective));
-        //
+
         assert objective != null : "Speler had geen score op " + objective.getName();
         //
         Score playerScore = objective.getScore(player);
+        int playerScoreInt = playerScore.getScore();
         Bukkit.broadcastMessage(String.valueOf(playerScore));
 
 //        if (player.getWorld().getName().equalsIgnoreCase("kbevent")) {
