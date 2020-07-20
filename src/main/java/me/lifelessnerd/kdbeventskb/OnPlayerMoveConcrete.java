@@ -18,24 +18,24 @@ public class OnPlayerMoveConcrete implements Listener {
         Bukkit.getPluginManager();
     }
     @EventHandler
-    public void onPlayerMove(PlayerMoveEvent e) {
+    public void onPlayerMove(PlayerMoveEvent event) {
 
 
-        Player p = e.getPlayer();
-        if(p.getWorld().getName().equalsIgnoreCase("kbevent")) {
-            Block block = p.getLocation().getBlock().getRelative(BlockFace.DOWN);
+        Player player = event.getPlayer();
+        if(player.getWorld().getName().equalsIgnoreCase("kbevent")) {
+            Block block = player.getLocation().getBlock().getRelative(BlockFace.DOWN);
             Material blockMaterial = block.getType();
-            Location loc = p.getLocation();
+            Location loc = player.getLocation();
 
             if(blockMaterial == Material.GLOWSTONE) {
 
                 Location redloc = new Location(Bukkit.getWorld("kbevent"), 1 , 86, 11);
                 Location redloc2 = new Location(Bukkit.getWorld("kbevent"), 0, 86, 11);
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "scoreboard players set " + p.getName() + " KBdeath 1");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "scoreboard players set " + player.getName() + " KBdeath 1");
                 redloc.getBlock().setType(Material.REDSTONE_BLOCK);
                 redloc2.getBlock().setType(Material.REDSTONE_BLOCK);
-                e.getPlayer().getWorld().strikeLightning(loc);
-                p.sendMessage(ChatColor.RED + "You died!");
+                event.getPlayer().getWorld().strikeLightning(loc);
+                player.sendMessage(ChatColor.RED + "You died!");
             } else {
                 //
             }
